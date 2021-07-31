@@ -23,9 +23,9 @@ Route::get('/hello', function () {
 });
 
 Route::get('/home', function () {
-        return "Home page";   
+        return "Home page!";   
 });
 
 Route::get('/news', function () {
-        return "News page";   
+        return "News page!";   
 });
