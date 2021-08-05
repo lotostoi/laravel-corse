@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\NewsCategorysController as NCC;
+use App\Http\Controllers\NewsController as NC;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,21 +13,23 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home/index');
 });
 
-
 Route::get('/hello', function () {
-        return "Hello, World";   
+    return "Hello, World";
 });
 
 Route::get('/home', function () {
-        return "Home page";   
+    return "Home page";
 });
 
-Route::get('/news', function () {
-        return "News page";   
+Route::group(['prefix' => '/news'], function () {
+    Route::get('/', [NC::class, 'index']);
+    Route::get('/categories', [NCC::class, 'index'])->name('categories');
+    Route::get('/categories/{id}', [NC::class, 'showCategoryById'])->name('categoriesId');
+    Route::get('/{id}', [NC::class, 'showNewById'])->name('newId');
 });
