@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\NewsCategorysController as NCC;
 use App\Http\Controllers\NewsController as NC;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\admin\AdminMain;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,21 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
-Route::get('/', function () {
-    return view('home/index');
+Route::group(['prefix' => '/admin'], function () {
+    Route::get('/', [AdminMain::class, 'index']);
 });
 
-Route::get('/hello', function () {
-    return "Hello, World";
-});
-
-Route::get('/home', function () {
-    return "Home page";
-});
-
-Route::group(['prefix' => '/news'], function () {
-    Route::get('/', [NC::class, 'index']);
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', [AboutUs::class, 'index']);
     Route::get('/categories', [NCC::class, 'index'])->name('categories');
     Route::get('/categories/{id}', [NC::class, 'showCategoryById'])->name('categoriesId');
     Route::get('/{id}', [NC::class, 'showNewById'])->name('newId');

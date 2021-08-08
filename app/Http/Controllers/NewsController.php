@@ -8,7 +8,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('news/index', ['newsList' => $this->newsList]);
+        return view('news/default', ['newsList' => $this->newsList]);
     }
 
     public function shownewById(Request $request, $id)
@@ -23,18 +23,18 @@ class NewsController extends Controller
             }
         }
 
-        return view('news/one', ['new' => $n]);
+        return view('app/one', ['new' => $n, 'title' =>'Current new']);
     }
 
     public function showCategoryById(Request $request, $id)
     {
         $newsList = [];
 
-        $categoryName = '';
+        $category = '';
 
         foreach ($this->categoriesList as $cat) {
             if (strval($cat['id']) === $id) {
-                $categoryName = $cat['title'];
+                $category = $cat;
             }
 
         }
@@ -45,9 +45,9 @@ class NewsController extends Controller
                 $newsList[] = $new;
             }
         }
-        return view('news/index', [
+        return view('app/news-list', [
             'newsList' => $newsList,
-            'categoryName' => $categoryName,
+            'category' => $category,
         ]);
     }
 }

@@ -17,46 +17,54 @@ class Controller extends BaseController
             [
                 'id' => 'drtgretert',
                 'categoryId' => 1,
-                'title' => 'Reports: Jazz acquire Eric Paschall in trade with Warriors',
-                'content' => 'The Warriors reportedly will receive a protected future second round pick from the Jazz in exchange for Paschall.',
+                'img' => '/assets/img/news/1.jpg',
+                'title' => 'WGC Invitational: Bryson DeChambeau just two behind Harris English after third round in Memphis',
+                'content' => "An eight-birdie 63 gets Bryson DeChambeau within touching distance of long-time leader Harris English on day three of the WGC-FedEx St Jude Invitational. Watch Sunday's final round live from 5:30pm on Sky Sports Golf.",
             ],
             [
                 'id' => 'dfgfdgfdgyuy',
                 'categoryId' => 2,
-                'title' => 'The China Challenge: America as a Rising Power',
-                'content' => 'Chinese leaders insist that America is a declining power. It’s time to counter China’s narrative by turning it on its head. The Biden administration is wisely attempting to “build back better.” In the process, it should embrace the role of underdog. If framed correctly, this narrative shift could undercut China’s PR strategy, rally America’s allies and foster national unity. Getting the narrative right is the key. Beijing is attempting to discredit America in the eyes of the world, and especially in the eyes of its neighbors. Its leaders aim to supplant American influence with their own by consistently pointing out signs of America’s waning power. Unfortunately, some aspects of their story are not wrong. The U.S. has been failing to fix its myriad woes. It is not just America’s infrastructure that is deteriorating. Its life expectancy is falling, much as Russia’s did after the Soviet Union’s collapse. U.S. educational achievements have plummeted, so that it must import foreigners to work in the tech industry. Too many Americans lack basic critical thinking skills, allowing conspiracy theories to warp perceptions and fuel unrest. And while many metrics of national prestige are sinking, homelessness and suicide rates continue to rise. All this is fodder for Beijing’s narrative that America is in decline, but that narrative overlooks America’s remarkable ability to right itself. If Congress passes a massive infrastructure spending bill, it will potentially set the country on a course correction. The legislation will at least provide some means with which to reverse these disturbing trends, as long as American leaders acknowledge their severity. The question will then be how best to engage with China’s narrative of American decline.',
+                'img' => '/assets/img/news/2.jpg',
+                'title' => 'Canada wants immigrants but the pandemic is in the way. So it’s looking to keep people already there.',
+                'content' => 'TORONTO — Arjan van Dam came to Canada in 2017 on a work permit with his wife and children to help his Dutch employer, a purveyor of agricultural equipment, set up shop. He liked the country. In four years, the 33-year-old’s family grew — from two children to five, including twins born this year.But Canada’s immigration system was not weighed in his favor. His age, lack of postsecondary education and average English-language skills meant that qualifying for permanent residency was a challenge, said his Toronto-based lawyer, Barbara Jo Caruso. Until now. Canada wants more immigrants — 401,000 this year, to be exact — and is not letting pandemic border controls get in the way. That means some new programs, including ones granting residency status to people already in the country and in jobs that might not have previously qualified.',
             ],
             [
                 'id' => 'gfhfghf',
                 'categoryId' => 1,
-                'title' => 'Romelu Lukaku: Chelsea target wants to leave Inter Milan if suitable offer is made',
-                'content' => 'The Blues had an £85m bid for the 28-year-old rejected by the Serie A champions earlier this week. Inter were confident of keeping hold of Lukaku given his previous comments about being happy to stay.',
+                'img' => '/assets/img/news/3.jpg',
+                'title' => 'The Hundred: Quinton de Kock helps Southern Brave overpower the Northern Superchargers and secure the double',
+                'content' => "Dane Vilas top-scored for the visitors with a composed 35; Danny Briggs (2-28) and Tymal Mills (1-17) restricted Superchargers to 128; Mystery spinner Adil Rashid took a superb 2-19; But Quinton de Kock's imperious knock saw the hosts home",
             ],
             [
                 'id' => 'dfgdfgdfg',
                 'categoryId' => 2,
+                'img' => '/assets/img/news/4.jpg',
                 'title' => 'Living Together with Deep Divides',
-                'content' => 'The founding of America was an ambitious experiment in pluralism to create a nation with people from varied backgrounds, statuses, beliefs and creeds. Even more ambitious was the Founders’ promise of equality, liberty and justice for all—though of course, those principles were only applied to a sliver of the population within the new nation. The country created by this experiment was, and remains, far from perfect. The democratic processes and institutions built and fortified over time have played a critical role in sustaining our republic. However, we are now realizing the importance of not only strong democratic institutions, but also a shared core of liberal values that inform how we engage with each other as fully free and dignified equals.',
+                'content' => 'The resurgence of the coronavirus has reshaped the early contours of the midterm elections, with some Democrats beginning to distance themselves from the Biden administration and more directly blame Republicans, reflecting their growing alarm on an issue that long played to their political advantage. Democrats had hoped to pivot from Biden’s success on the pandemic to pitch the party’s economic agenda, including sweeping proposals on infrastructure and social programs. But the rise in covid-19 cases is suddenly complicating that strategy.',
             ],
             [
                 'id' => 'dfgdfgdfg',
                 'categoryId' => 3,
-                'title' => 'Mugham, the unique Azerbaijani musical tradition handed down over generations',
-                'content' => 'No form of music tugs at the heartstrings of Azerbaijanis more than the sound of Mugham. This centuries-old musical tradition draws on folklore and oral histories passed down from generation to generation, creating a unique and ‘melancholy’ sound. The Azerbaijani Mugham is characterised by a large degree of improvisation and draws upon popular bard melodies, rhythms and performance techniques.  Namiq Aslanov is a Mugham singer. He explains that when he sings, "every word comes from inside, from the heart". "It is not played by following notes, so whatever comes out comes from within you", he adds.',
+                'img' => '/assets/img/news/5.jpg',
+                'title' => 'Andrew Cuomo isn’t the first New York governor to face impeachment. In 1913, another Democrat was removed.',
+                'content' => 'Calls for New York Gov. Andrew M. Cuomo to resign piled up this week after state Attorney General Letitia James released a damning report Tuesday detailing sexual harassment allegations against the Democratic governor. State lawmakers, members of Congress and even President Biden said Cuomo should resign, with no major figures in the state or national Democratic Party still defending him.',
             ],
         ];
         $this->categoriesList = [
             [
                 'id' => 1,
                 'title' => 'sport',
+                'img' => '/assets/img/categories/sport.jpg',
             ],
             [
                 'id' => 2,
                 'title' => 'politics',
+                'img' => '/assets/img/categories/politics.jpg',
             ],
             [
                 'id' => 3,
                 'title' => 'cultura',
+                'img' => '/assets/img/categories/culture.jpg',
             ],
         ];
     }
