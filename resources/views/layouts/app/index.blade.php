@@ -2,14 +2,14 @@
 
 <html>
 
-<x-Head></x-Head>
+<x-app.head></x-app.head>
 
 <body>
     @yield('header')
-    <x-Navbar></x-Navbar>
+    <x-app.navbar></x-app.navbar>
     @yield('content')
-    <x-Footer></x-Footer>
-    <x-Scripts></x-Scripts>
+    <x-app.footer></x-app.footer>
+    <x-app.scripts></x-app.scripts>
 </body>
 
 </html>

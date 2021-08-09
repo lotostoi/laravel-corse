@@ -39,7 +39,7 @@ class Controller extends BaseController
                 'id' => 'dfgdfgdfg',
                 'categoryId' => 2,
                 'img' => '/assets/img/news/4.jpg',
-                'title' => 'Living Together with Deep Divides',
+                'title' => 'Living Together with Deep Divides gyuytuytuytut yutyutyu reytry ',
                 'content' => 'The resurgence of the coronavirus has reshaped the early contours of the midterm elections, with some Democrats beginning to distance themselves from the Biden administration and more directly blame Republicans, reflecting their growing alarm on an issue that long played to their political advantage. Democrats had hoped to pivot from Biden’s success on the pandemic to pitch the party’s economic agenda, including sweeping proposals on infrastructure and social programs. But the rise in covid-19 cases is suddenly complicating that strategy.',
             ],
             [

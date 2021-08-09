@@ -1,18 +1,42 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-
         <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
-                <span class="menu-title">Catigories</span>
+            <a class="nav-link" href="{{ route('main-admin') }}">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Main</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" data-toggle="collapse" href="#news-basic" aria-expanded="false"
+                aria-controls="news-basic">
                 <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
                 <span class="menu-title">News</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="news-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin-news') }}">News</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin-categories') }}">Category</a></li>
+                </ul>
         </li>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#users-basic" aria-expanded="false"
+                aria-controls="users-basic">
+                <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
+                <span class="menu-title">User</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="users-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Users</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Roles</a></li>
+                </ul>
+        </li>
+
+
+
+
         <li class="nav-item sidebar-user-actions">
             <div class="user-details">
                 <div class="d-flex justify-content-between align-items-center">

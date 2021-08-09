@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title> News blog </title>
+        <title>@section('title') News blog @show</title>
 
         <meta name="description" content="any">
 
@@ -17,7 +17,7 @@
 
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="{{ asset('assets/main.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/main.css') }}">
 
     </head>
 </div>

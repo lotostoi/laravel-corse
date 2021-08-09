@@ -1,7 +1,8 @@
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets/img/logo.svg') }}"
-                alt="logo" /></a>
+        <a class="navbar-brand brand-logo text-light" href="{{ route('main-admin') }}"
+            style="padding: 0 2rem; text-align:left!important"><img src="{{ asset('assets/img/logo-mini.svg') }}" alt="logo"
+                style="width:40px;" />Admin panel</a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('assets/img/logo-mini.svg') }}"
                 alt="logo" /></a>
     </div>

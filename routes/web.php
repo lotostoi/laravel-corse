@@ -5,6 +5,8 @@ use App\Http\Controllers\NewsCategorysController as NCC;
 use App\Http\Controllers\NewsController as NC;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminMain;
+use App\Http\Controllers\admin\AdminNews;
+use App\Http\Controllers\admin\AdminCategories;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,11 @@ use App\Http\Controllers\admin\AdminMain;
 |
  */
 Route::group(['prefix' => '/admin'], function () {
-    Route::get('/', [AdminMain::class, 'index']);
+    Route::get('/', [AdminMain::class, 'index'])->name('main-admin');
+    Route::get('/news', [AdminNews::class, 'index'])->name('admin-news');
+    Route::get('/add-news', [AdminNews::class, 'create'])->name('admin-add-news');
+    Route::get('/categories', [AdminCategories::class, 'index'])->name('admin-categories');
+    Route::get('/add-categories', [AdminCategories::class, 'create'])->name('admin-add-category');
 });
 
 Route::group(['prefix' => '/'], function () {

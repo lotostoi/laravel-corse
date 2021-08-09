@@ -1,9 +1,9 @@
 @extends('layouts/app/index')
-
+@section('title') @parent - new - {{ $new['title'] }} @endsection
 @section('header')
-    <x-app.-header :background="$new['img']"></x-app.-header>
+    <x-app.header :background="$new['img']"></x-app.header>
 @endsection
 
 @section('content')
-    <x-app.-one :new="$new"></x-app.-one>
+    <x-app.one :new="$new"></x-app.one>
 @endsection
