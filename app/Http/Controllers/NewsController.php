@@ -14,7 +14,6 @@ class NewsController extends Controller
     public function shownewById(Request $request, $id)
     {
         $n = [];
-
         foreach ($this->newsList as $new) {
 
 

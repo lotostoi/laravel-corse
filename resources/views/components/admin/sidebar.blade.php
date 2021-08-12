@@ -29,7 +29,7 @@
             </a>
             <div class="collapse" id="users-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Users</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('users') }}">Users</a></li>
                     <li class="nav-item"> <a class="nav-link" href="#">Roles</a></li>
                 </ul>
         </li>

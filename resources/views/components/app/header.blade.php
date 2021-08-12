@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="page-heading">
+                <div class="page-heading" @if ($padding ?? null) style="padding:{{ $padding }} " @endif>
                     @if (!empty($title))
                         <h1>{{ $title }}</h1>
                     @endif
