@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\app;
+use App\Http\Controllers\Controller;
+use App\Models\BlogNew;
 
 class AboutUs extends Controller
 {
@@ -9,7 +11,7 @@ class AboutUs extends Controller
     {
         return view('app.index', [
             'background' => 'assets/img/bg-index.jpg',
-            'news' => $this->newsList,
+            'news' => (new BlogNew())->getRandomNews(),
             'title' => 'News blog',
         ]);
     }

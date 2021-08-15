@@ -1,13 +1,13 @@
 <?php
-use App\Http\Controllers\AboutUs;
+use App\Http\Controllers\app\AboutUs;
 use App\Http\Controllers\admin\AdminCategories;
 use App\Http\Controllers\admin\AdminMain;
 use App\Http\Controllers\admin\AdminNews;
 use App\Http\Controllers\admin\AdminUsers;
-use App\Http\Controllers\AppReviews;
-use App\Http\Controllers\NewsCategorysController as NCC;
-use App\Http\Controllers\NewsController as NC;
-use App\Http\Controllers\PersonArea;
+use App\Http\Controllers\app\AppReviews;
+use App\Http\Controllers\app\NewsCategorysController as NCC;
+use App\Http\Controllers\app\NewsController as NC;
+use App\Http\Controllers\app\PersonArea;
 use Illuminate\Support\Facades\Route;
 
 /*

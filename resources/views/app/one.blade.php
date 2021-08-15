@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <x-app.one :new="$new"></x-app.one>
+    <x-app.one :new="$new" :categories="$categories"></x-app.one>
 @endsection

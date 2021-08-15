@@ -16,15 +16,7 @@
                 voluptatibus reiciendis ipsam aut nisi molestiae inventore nemo pariatur itaque omnis adipisci
                 provident. Quisquam alias quod necessitatibus quae laborum velit molestias repellendus explicabo
                 eligendi? Dolor sequi vitae ipsum unde suscipit alias quo quaerat accusantium iste laboriosam, itaque
-                adipisci rerum et corrupti quae nulla quia similique nisi quisquam natus blanditiis labore. Esse, animi.
-                Quidem, asperiores optio saepe harum recusandae neque reprehenderit a placeat, tempora eos aliquid
-                aspernatur ex ullam perferendis error eum, provident laborum! Laudantium, architecto ipsa consequuntur
-                numquam velit accusamus corporis laborum. Vitae repellendus, officia aut quo deleniti non beatae
-                praesentium eum illo inventore totam similique nostrum velit optio repellat quaerat suscipit sunt
-                consequatur quos, fuga perferendis tempora quasi. Quod perferendis doloribus at voluptatum? Quae velit
-                nisi impedit? Minima aliquam in, beatae dolore eligendi hic sapiente ducimus necessitatibus dolorem
-                labore voluptatibus deserunt animi voluptas quis! Delectus excepturi culpa vero obcaecati aliquid
-                perspiciatis ex voluptatum, accusamus numquam error eum quibusdam minus, architecto facilis?
+                adipisci rerum et corrupti quae nulla quia similique nisi quisquam natus blanditiis labore.
             </p>
         </div>
     </div>

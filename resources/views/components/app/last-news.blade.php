@@ -6,10 +6,10 @@
                 @if ($loop->index > 2) @break
             @endif
             <div class="col-lg-3 col-sm-11 bordered">
-                <a href="{{ route('newId', ['id' => $new['id']]) }}" class="row my-3 justify-content-center">
-                    <img src="{{ $new['img'] }}" class="col-12" alt="img">
+                <a href="{{ route('newId', ['id' => $new->id]) }}" class="row my-3 justify-content-center">
+                    <img src="{{ $new->img }}" class="col-12" alt="img">
                     <span class="col-12 h6-lg h3-sm mt-lg-1 mt-sm-3 text-light stretched-link">
-                        {{ $new['title'] }}</span>
+                        {{ $new->title }}</span>
                 </a>
             </div>
             @empty

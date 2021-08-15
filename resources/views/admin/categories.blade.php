@@ -21,11 +21,11 @@
         <tbody class="thead-light col-12">
             @foreach ($categories as $cat)
                 <tr class="row my-2">
-                    <th scope="row" class="col-2 pl-2 h6" text>#:<small class="text-success">{{ $cat['id'] }}</small>
+                    <th scope="row" class="col-2 pl-2 h6" text>#:<small class="text-success">{{ $cat->id }}</small>
                     </th>
-                    <td class="col-2"> {{ $cat['title'] }}</td>
+                    <td class="col-2"> {{ $cat->title }}</td>
                    
-                    <td class="col-5"> <img class="w-100" src="{{ $cat['img'] }}" alt="img"> </td>
+                    <td class="col-5"> <img class="w-100" src="{{ $cat->img }}" alt="img"> </td>
 
                     <td class="col-1">
                         {{ now()->format('d-m-y') }}

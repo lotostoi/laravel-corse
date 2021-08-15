@@ -22,11 +22,11 @@
         <tbody class="thead-light col-12">
             @foreach ($news as $new)
                 <tr class="row mt-2">
-                    <th scope="row" class="col-1 pl-2 h6" text>#:<small class="text-success">{{ $new['id'] }}</small>
+                    <th scope="row" class="col-1 pl-2 h6" text>#:<small class="text-success">{{ $new->id }}</small>
                     </th>
-                    <td class="col-2"> {{ $new['title'] }}</td>
-                    <td class="col-3">{{ $new['content'] }}</td>
-                    <td class="col-3"> <img class="w-100" src="{{ $new['img'] }}" alt="img"> </td>
+                    <td class="col-2"> {{ $new->title }}</td>
+                    <td class="col-3">{{ $new->content }}</td>
+                    <td class="col-3"> <img class="w-100" src="{{ $new->img }}" alt="img"> </td>
 
                     <td class="col-1">
                         {{ now()->format('d-m-y') }}

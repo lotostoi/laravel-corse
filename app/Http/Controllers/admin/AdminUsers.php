@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-use Illuminate\Http\File;
-use Illuminate\Support\Facades\Storage;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminUsers extends Controller
 {
@@ -17,7 +17,7 @@ class AdminUsers extends Controller
 
     public function __invoke(Request $request)
     {
-        return view('admin.users');
+        return view('admin.users', ['users' => (new User())->getAll()]);
     }
 
     public function index()
