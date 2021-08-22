@@ -26,10 +26,12 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('/', [AdminMain::class, 'index'])->name('main-admin');
 
     Route::get('/news', [AdminNews::class, 'index'])->name('admin-news');
-    Route::get('/add-news', [AdminNews::class, 'create'])->name('admin-add-news');
+    Route::get('/page-add-new', [AdminNews::class, 'create'])->name('admin-page-add-new');
+    Route::post('/create-new', [AdminNews::class, 'store'])->name('admin-create-new');
 
     Route::get('/categories', [AdminCategories::class, 'index'])->name('admin-categories');
-    Route::get('/add-categories', [AdminCategories::class, 'create'])->name('admin-add-category');
+    Route::get('/add-categories', [AdminCategories::class, 'addNewPage'])->name('admin-add-category');
+    Route::get('/create-categories', [AdminCategories::class, 'store'])->name('admin-create-category');
 
     Route::get('/users', AdminUsers::class)->name('users');
 });

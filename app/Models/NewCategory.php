@@ -11,12 +11,11 @@ class NewCategory extends Model
 
     protected $table = 'news-categories';
 
-    public function getcategories()
+    public function news()
     {
-        return \DB::table($this->table)->get();
+        return $this
+            ->belongsToMany(BlogNew::class, 'conections-news-and-categories', 'new_category_id', 'new_id')
+            ->using(ConectionNewAndCategories::class);
     }
-    public function getAllId()
-    {
-        return \DB::table($this->table)->select('id')->get();
-    }
+
 }
