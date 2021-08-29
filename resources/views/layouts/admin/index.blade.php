@@ -26,6 +26,7 @@
     </div>
     <script src="{{ asset('assets/vendor/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/misc.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

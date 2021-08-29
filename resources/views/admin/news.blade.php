@@ -8,7 +8,7 @@
         </div>
         <hr />
         <h1 class="row justify-content-center my-3 text-dark">Current news</h1>
-        <div class="row">
+        <div class="row admin-wrapper-news">
             <div class="row w-100 bg-dark">
                 <div class="col-1 py-3 text-center">#id</div>
                 <div class="col-3 py-3 text-center">Title</div>
@@ -36,11 +36,13 @@
 
                     <div class="col-2 py-1">
                         <a href="#" class="row link text-warning">Update divis new</a>
-                        <a href="#" class="row link text-danger mt-3">Delete divis new</a>
+                        <a href="#" data-delete-id="{{ $new->id }}"
+                            class="row link text-danger mt-3">Delete divis new</a>
                     </div>
                 </div>
             @endforeach
         </div>
         {{ $news->links() }}
     </div>
+
 @endsection

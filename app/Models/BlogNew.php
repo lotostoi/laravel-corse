@@ -17,8 +17,8 @@ class BlogNew extends Model
     {
 
         return $this
-            ->belongsToMany(NewCategory::class, 'conections-news-and-categories', 'new_id', 'new_category_id')
-            ->using(ConectionNewAndCategories::class);
+            ->belongsToMany(NewCategory::class, 'conections-news-and-categories', 'new_id', 'new_category_id');
+            //->using(ConectionNewAndCategories::class);
     }
 
 }

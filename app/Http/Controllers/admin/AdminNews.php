@@ -8,6 +8,7 @@ use App\Models\ConectionNewAndCategories;
 use App\Models\NewCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StorageNewsRequest;
 
 class AdminNews extends Controller
 {
@@ -37,38 +38,21 @@ class AdminNews extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorageNewsRequest $request)
     {
-        $isCategoryId = false;
-        $categoryId = [];
+     
+        $fields = $request->validate();
+        $categoryId = $fields['category-id'];
 
-        $rules = [
-            'title' => ['required', 'string', 'max:20'],
-            'text' => ['required', 'string', 'max:500'],
-            'load-image' => ['required', 'image'],
-        ];
-
-        foreach ($request->all() as $key => $val) {
-
-            if (strripos($key, 'category-id') === 0) {
-                $isCategoryId = true;
-                $rules[$key] = ['required'];
-                $categoryId[] = $val;
-            }
-        }
-
-        if (!$isCategoryId) {
-            $rules['category-id'] = ['required'];
-        }
-
-        $request->validate($rules);
         if ($request->file('load-image')->isValid()) {
             $ext = $request->file('load-image')->extension();
             $name = preg_split("/ /", $request->title)[0] . "_" . uniqid() . '.' . "$ext";
             $upload_folder = 'public';
             $file = Storage::putFileAs($upload_folder, $request->file('load-image')->path(), $name);
         }
+
         if ($file) {
+
             $id = BlogNew::create([
                 'title' => $request->title,
                 'content' => $request->text,
@@ -89,6 +73,7 @@ class AdminNews extends Controller
                 return redirect()->route('admin-news')
                     ->with('success', 'Новость успешно добавлена');
             }
+
             return back()->withInput()->with('error', 'Не удалось добавть новость');
         }
 
@@ -133,8 +118,19 @@ class AdminNews extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+       
+        ConectionNewAndCategories::where('new_id', $id)->delete();
+
+        $new = BlogNew::find($id);
+
+        $new->delete();
+
+        return response()->json([
+            'message' => 'Data deleted successfully!',
+            'id' => 'tt',
+        ]);
+
     }
 }

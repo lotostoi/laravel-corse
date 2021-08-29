@@ -1,9 +1,9 @@
 <?php
-use App\Http\Controllers\app\AboutUs;
 use App\Http\Controllers\admin\AdminCategories;
 use App\Http\Controllers\admin\AdminMain;
 use App\Http\Controllers\admin\AdminNews;
 use App\Http\Controllers\admin\AdminUsers;
+use App\Http\Controllers\app\AboutUs;
 use App\Http\Controllers\app\AppReviews;
 use App\Http\Controllers\app\NewsCategorysController as NCC;
 use App\Http\Controllers\app\NewsController as NC;
@@ -28,6 +28,7 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('/news', [AdminNews::class, 'index'])->name('admin-news');
     Route::get('/page-add-new', [AdminNews::class, 'create'])->name('admin-page-add-new');
     Route::post('/create-new', [AdminNews::class, 'store'])->name('admin-create-new');
+    Route::delete('/api/delete-new/{id}', [AdminNews::class, 'destroy'])->name('admin-api-delete-new');
 
     Route::get('/categories', [AdminCategories::class, 'index'])->name('admin-categories');
     Route::get('/add-categories', [AdminCategories::class, 'addNewPage'])->name('admin-add-category');
