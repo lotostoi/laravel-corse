@@ -1,6 +1,9 @@
 @extends('layouts.admin.index')
 @section('admin-content')
     <div class="container">
+{{--         @if (success)
+            @include('admin.message',['success'=> success])
+        @endif --}}
         <div class="row justify-content-center">
             <a href="{{ route('admin-page-add-new') }}" class="btn btn-dark col-6"> <span class="icon-bg"><i
                         class="mdi mdi-plus menu-icon"></i></span> Add new
@@ -35,9 +38,10 @@
                     </div>
 
                     <div class="col-2 py-1">
-                        <a href="#" class="row link text-warning">Update divis new</a>
-                        <a href="#" data-delete-id="{{ $new->id }}"
-                            class="row link text-danger mt-3">Delete divis new</a>
+                        <a href="{{ route('admin-page-update-new', ['id' => $new->id]) }}"
+                            class="row link text-warning">Update divis new</a>
+                        <a href="#" data-delete-id="{{ $new->id }}" class="row link text-danger mt-3">Delete divis
+                            new</a>
                     </div>
                 </div>
             @endforeach

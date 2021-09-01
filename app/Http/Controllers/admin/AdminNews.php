@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorageNewsRequest;
+use App\Http\Requests\UpdateNewRequest;
 use App\Models\BlogNew;
 use App\Models\ConectionNewAndCategories;
 use App\Models\NewCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\StorageNewsRequest;
 
 class AdminNews extends Controller
 {
@@ -40,9 +41,8 @@ class AdminNews extends Controller
      */
     public function store(StorageNewsRequest $request)
     {
-     
-        $fields = $request->validate();
-        $categoryId = $fields['category-id'];
+
+        $fields = $request->validated();
 
         if ($request->file('load-image')->isValid()) {
             $ext = $request->file('load-image')->extension();
@@ -61,8 +61,8 @@ class AdminNews extends Controller
 
             if ($id) {
 
-                if (count($categoryId)) {
-                    foreach ($categoryId as $cat_id) {
+                foreach ($request->input() as $key => $cat_id) {
+                    if (str_contains($key, "category-id")) {
                         ConectionNewAndCategories::create([
                             'new_id' => "$id",
                             'new_category_id' => "$cat_id",
@@ -97,7 +97,26 @@ class AdminNews extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $changedCategories = BlogNew::find($id)->categories()->get();
+
+        $categories = NewCategory::all();
+
+        $categories->map(function ($_cat) use ($changedCategories) {
+
+            foreach ($changedCategories as $cat) {
+                if ($cat->id === $_cat->id) {
+                    $_cat['isSelected'] = true;
+                    return $_cat;
+                }
+            }
+
+        });
+
+        return view('admin.update-new', [
+            'new' => BlogNew::find($id),
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -107,9 +126,48 @@ class AdminNews extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateNewRequest $request)
     {
-        //
+        $fields = $request->validated();
+        $id = $fields['id'];
+        
+        $name = null;
+
+        if (array_key_exists('load-image', $fields) && $request->file('load-image')->isValid()) {
+            $ext = $request->file('load-image')->extension();
+            $name = preg_split("/ /", $request->title)[0] . "_" . uniqid() . '.' . "$ext";
+            $upload_folder = 'public';
+            $file = Storage::putFileAs($upload_folder, $request->file('load-image')->path(), $name);
+            return $name;
+        }
+
+        ConectionNewAndCategories::where('new_id', $id)->delete();
+
+        $data = [
+            'title' => $fields['title'],
+            'content' => $fields['content'],
+        ];
+
+        if ($name) {
+
+            $data['img'] = Storage::url($name);
+
+        }
+
+        BlogNew::where("id", $id)->update($data);
+
+        foreach ($request->input() as $key => $cat_id) {
+            if (str_contains($key, "category-id")) {
+                ConectionNewAndCategories::create([
+                    'new_id' => "$id",
+                    'new_category_id' => "$cat_id",
+                ]);
+            }
+        }
+
+        return redirect()->route('admin-news')
+            ->with('success', 'Новость успешно добавлена');
+
     }
 
     /**
@@ -120,7 +178,7 @@ class AdminNews extends Controller
      */
     public function destroy(Request $request, $id)
     {
-       
+
         ConectionNewAndCategories::where('new_id', $id)->delete();
 
         $new = BlogNew::find($id);
