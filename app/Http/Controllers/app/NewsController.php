@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\app;
 
 use App\Models\BlogNew;
+use App\Models\ConectionNewAndCategories;
+use App\Models\NewCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,23 +17,23 @@ class NewsController extends Controller
 
     public function shownewById(Request $request, $id)
     {
-        $n = (new BlogNew())->getOneById($id);
+        $n = BlogNew::find($id);
         return view('app/one', [
-            'new' => $n['news'],
-            'categories' => $n['categories'],
+            'new' => $n,
+            'categories' => $n->categories()->get(),
         ]);
     }
 
     public function showCategoryById(Request $request, $id)
     {
 
-        $newsList = (new BlogNew())->getAllByCategoryId($id);
+        $category =  NewCategory::find($id);
 
         return view('app/news-list', [
-            'newsList' => $newsList,
+            'newsList' => $category->news()->get(),
             'category' => [
-                'title' => $newsList->toArray()[1]->newCategoryTitle,
-                'img' => $newsList->toArray()[1]->newCategoryImg,
+                'title' => $category->title,
+                'img' => $category->img,
             ],
         ]);
     }

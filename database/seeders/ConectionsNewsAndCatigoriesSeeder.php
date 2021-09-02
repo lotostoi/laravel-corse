@@ -24,8 +24,9 @@ class ConectionsNewsAndCatigoriesSeeder extends Seeder
 
         $data = [];
 
-        $newsIds = (new BlogNew())->getAllId();
-        $categoriesIds = (new NewCategory())->getAllId();
+        
+        $newsIds = BlogNew::all()->keyBy('id')->all();
+        $categoriesIds = NewCategory::all()->keyBy('id')->all();
 
         $array = [];
 
@@ -34,10 +35,8 @@ class ConectionsNewsAndCatigoriesSeeder extends Seeder
         }
 
         foreach ($newsIds as $id) {
-
             $count = rand(1, 6);
             $newArray = $array;
-
             for ($i = 1; $i <= $count; $i++) {
                 $new_category_id = array_splice($newArray, rand(0, count($newArray) - 1),1)[0];
                 $data[] = [
@@ -45,7 +44,6 @@ class ConectionsNewsAndCatigoriesSeeder extends Seeder
                     'new_category_id' => (int) $new_category_id,
                 ];
             }
-
         }
         return $data;
     }

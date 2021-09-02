@@ -15,8 +15,7 @@ class AdminCategories extends Controller
      */
     public function index()
     {
-        $categories = new NewCategory();
-        return view('admin.categories', ['categories' => $categories->getcategories()]);
+        return view('admin.categories', ['categories' => NewCategory::paginate(config('pagination.categories'))]);
     }
 
     /**

@@ -18,6 +18,7 @@ class CreateConectionsNewsAndcategoriesTable extends Migration
             $table->foreign('new_id')->references('id')->on('news');
             $table->unsignedBigInteger('new_category_id');
             $table->foreign('new_category_id')->references('id')->on('news-categories');
+            $table->timestamps();
         });
     }
 

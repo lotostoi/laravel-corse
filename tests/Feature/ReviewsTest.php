@@ -31,10 +31,5 @@ class ReviewsTest extends TestCase
         $response = $this->get(route('reviews'));
         $response->assertViewHas('title', 'Reviews');
     }
-    public function test_add_reviews_add()
-    {
-        $response = $this->get(route('add-reviews'));
-        $response->assertStatus(302);
-        //$response->assertViewHas('title', 'Reviews');
-    }
+
 }

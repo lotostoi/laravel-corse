@@ -1,9 +1,9 @@
 <?php
-use App\Http\Controllers\app\AboutUs;
 use App\Http\Controllers\admin\AdminCategories;
 use App\Http\Controllers\admin\AdminMain;
 use App\Http\Controllers\admin\AdminNews;
 use App\Http\Controllers\admin\AdminUsers;
+use App\Http\Controllers\app\AboutUs;
 use App\Http\Controllers\app\AppReviews;
 use App\Http\Controllers\app\NewsCategorysController as NCC;
 use App\Http\Controllers\app\NewsController as NC;
@@ -26,10 +26,16 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('/', [AdminMain::class, 'index'])->name('main-admin');
 
     Route::get('/news', [AdminNews::class, 'index'])->name('admin-news');
-    Route::get('/add-news', [AdminNews::class, 'create'])->name('admin-add-news');
+    Route::get('/page-add-new', [AdminNews::class, 'create'])->name('admin-page-add-new');
+    Route::post('/create-new', [AdminNews::class, 'store'])->name('admin-create-new');
+    Route::delete('/api/delete-new/{id}', [AdminNews::class, 'destroy'])->name('admin-api-delete-new');
+    Route::get('/page-update-new/{id}', [AdminNews::class, 'edit'])->name('admin-page-update-new');
+    Route::put('/update-new', [AdminNews::class, 'update'])->name('admin-update-new');
+
 
     Route::get('/categories', [AdminCategories::class, 'index'])->name('admin-categories');
-    Route::get('/add-categories', [AdminCategories::class, 'create'])->name('admin-add-category');
+    Route::get('/add-categories', [AdminCategories::class, 'addNewPage'])->name('admin-add-category');
+    Route::get('/create-categories', [AdminCategories::class, 'store'])->name('admin-create-category');
 
     Route::get('/users', AdminUsers::class)->name('users');
 });
