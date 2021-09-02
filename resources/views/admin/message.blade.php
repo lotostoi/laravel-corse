@@ -1,5 +1,8 @@
 <div class="row">
-    @if ($success)
-        <div class="alert alert-succedd">{{ $success }}</div>
+    @if (session()->has('success'))
+        <div class="alert alert-success">{{ session()->get('success') }}</div>
+        @php
+            session()->forget('success');
+        @endphp
     @endif
 </div>

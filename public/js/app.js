@@ -1855,7 +1855,9 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http */ "./resources/js/http/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./http */ "./resources/js/http/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1865,10 +1867,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+
 var adminWrapperNews = document.querySelector(".admin-wrapper-news");
 adminWrapperNews === null || adminWrapperNews === void 0 ? void 0 : adminWrapperNews.addEventListener("click", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var target;
+    var target, _result, response;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -1876,14 +1880,25 @@ adminWrapperNews === null || adminWrapperNews === void 0 ? void 0 : adminWrapper
             target = e.target;
 
             if (!target.dataset.deleteId) {
-              _context.next = 4;
+              _context.next = 8;
               break;
             }
 
-            _context.next = 4;
-            return _http__WEBPACK_IMPORTED_MODULE_1__.default.delete("/delete-new/".concat(target.dataset.deleteId));
+            _result = confirm("Are you sure?");
 
-          case 4:
+            if (!_result) {
+              _context.next = 8;
+              break;
+            }
+
+            _context.next = 6;
+            return _http__WEBPACK_IMPORTED_MODULE_2__.default.delete("/delete-new/".concat(target.dataset.deleteId));
+
+          case 6:
+            response = _context.sent;
+            window.location.reload();
+
+          case 8:
           case "end":
             return _context.stop();
         }

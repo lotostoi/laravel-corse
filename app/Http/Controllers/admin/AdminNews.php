@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateNewRequest;
 use App\Models\BlogNew;
 use App\Models\ConectionNewAndCategories;
 use App\Models\NewCategory;
+use App\Models\WorkFiles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -44,14 +45,9 @@ class AdminNews extends Controller
 
         $fields = $request->validated();
 
-        if ($request->file('load-image')->isValid()) {
-            $ext = $request->file('load-image')->extension();
-            $name = preg_split("/ /", $request->title)[0] . "_" . uniqid() . '.' . "$ext";
-            $upload_folder = 'public';
-            $file = Storage::putFileAs($upload_folder, $request->file('load-image')->path(), $name);
-        }
+        $name = WorkFiles::saveFile($request);
 
-        if ($file) {
+        if ($name) {
 
             $id = BlogNew::create([
                 'title' => $request->title,
@@ -130,16 +126,8 @@ class AdminNews extends Controller
     {
         $fields = $request->validated();
         $id = $fields['id'];
-        
-        $name = null;
 
-        if (array_key_exists('load-image', $fields) && $request->file('load-image')->isValid()) {
-            $ext = $request->file('load-image')->extension();
-            $name = preg_split("/ /", $request->title)[0] . "_" . uniqid() . '.' . "$ext";
-            $upload_folder = 'public';
-            $file = Storage::putFileAs($upload_folder, $request->file('load-image')->path(), $name);
-            return $name;
-        }
+        $name = WorkFiles::saveFile($request);
 
         ConectionNewAndCategories::where('new_id', $id)->delete();
 
@@ -149,9 +137,7 @@ class AdminNews extends Controller
         ];
 
         if ($name) {
-
             $data['img'] = Storage::url($name);
-
         }
 
         BlogNew::where("id", $id)->update($data);
@@ -166,7 +152,7 @@ class AdminNews extends Controller
         }
 
         return redirect()->route('admin-news')
-            ->with('success', 'Новость успешно добавлена');
+            ->with('success', 'Новость успешно обновлена');
 
     }
 
@@ -185,9 +171,11 @@ class AdminNews extends Controller
 
         $new->delete();
 
+        session()->put('success', "File was deleted successfully!");
+
         return response()->json([
             'message' => 'Data deleted successfully!',
-            'id' => 'tt',
+            'status' => true,
         ]);
 
     }

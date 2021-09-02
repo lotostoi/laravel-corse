@@ -33,7 +33,8 @@ class UpdateNewRequest extends FormRequest
             'content' => ['required', 'string', 'max:500'],
         ];
 
-        if ($request->input('load-image')) {
+
+        if ($request->file('load-image')) {
             $rules['load-image'] = ['sometimes', 'image'];
         }
 

@@ -1,9 +1,9 @@
 @extends('layouts.admin.index')
 @section('admin-content')
     <div class="container">
-{{--         @if (success)
-            @include('admin.message',['success'=> success])
-        @endif --}}
+        @if (session()->has('success'))
+            @include('admin.message')
+        @endif
         <div class="row justify-content-center">
             <a href="{{ route('admin-page-add-new') }}" class="btn btn-dark col-6"> <span class="icon-bg"><i
                         class="mdi mdi-plus menu-icon"></i></span> Add new
